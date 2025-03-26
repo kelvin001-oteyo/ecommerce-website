@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop high-quality products at the best prices. Fast delivery and great deals!">
+<meta name="keywords" content="eCommerce, online shop, buy products, best prices, fast delivery">
+<meta name="author" content="Your Store Name">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Fill in the form below or reach out via our contact details.</p>
+
+        <div class="contact-container">
+            <form id="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Our Contact Details</h3>
+                <p><strong>📍 Address:</strong> 123 Commerce St, Nairobi</p>
+                <p><strong>📞 Phone:</strong> +254 712 345 678</p>
+                <p><strong>📧 Email:</strong> support@ecommerce.com</p>
+                <p><strong>⏰ Working Hours:</strong> Mon-Fri, 9 AM - 6 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <script>document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload
+    
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+    
+        if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+    
+        // Simulating form submission (you can replace this with a real backend API)
+        alert(`Thank you, ${name}! Your message has been received.`);
+        document.getElementById("contact-form").reset();
+    });
+    </script>
+
+</body>
+</html>

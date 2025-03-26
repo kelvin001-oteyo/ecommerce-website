@@ -1,0 +1,147 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    background: #222;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #f4a261;
+}
+
+/* Hero Section */
+.about-hero {
+    background: url('images/about-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.about-hero h1 {
+    font-size: 40px;
+}
+
+.about-hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Company Story */
+.company-story {
+    text-align: center;
+    padding: 40px 20px;
+    background: blue;
+}
+
+.company-story h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Mission & Vision */
+.mission-vision {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background: white;
+}
+
+.mission, .vision {
+    width: 45%;
+    text-align: center;
+}
+
+.mission h3, .vision h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Team Section */
+.team {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-member {
+    width: 200px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.team-member h4 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Testimonials */
+.testimonials {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+}
+
+.testimonial {
+    background: #f4a261;
+    color: white;
+    padding: 15px;
+    margin: 15px auto;
+    width: 60%;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.testimonial strong {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+    margin-top: 20px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop high-quality products at the best prices. Fast delivery and great deals!">
+    <meta name="keywords" content="eCommerce, online shop, buy products, best prices, fast delivery">
+    <meta name="author" content="Your Store Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | eCommerce</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <!-- Header (Navigation Bar) -->
+    <header>
+        <h1>eCommerce</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="shop-hero">
+        <h2>Shop the Latest Trends</h2>
+        <p>Find the best products at the best prices!</p>
+    </section>
+
+    <!-- Product Filters -->
+    <section class="filters">
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="accessories">Accessories</option>
+        </select>
+
+        <label for="price">Price Range:</label>
+        <select id="price">
+            <option value="all">All</option>
+            <option value="low">Under $50</option>
+            <option value="medium">$50 - $200</option>
+            <option value="high">Above $200</option>
+        </select>
+
+        <input type="text" id="search" placeholder="Search products...">
+        <button onclick="applyFilters()">Search</button>
+    </section>
+
+    <!-- Product Listing -->
+    <section class="product-list">
+        <div class="product">
+            <img src="images/product1.jpg" alt="Product 1">
+            <h3>Product Name 1</h3>
+            <p>$99.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/product2.jpg" alt="Product 2">
+            <h3>Product Name 2</h3>
+            <p>$149.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/product3.jpg" alt="Product 3">
+            <h3>Product Name 3</h3>
+            <p>$79.99</p>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button>Previous</button>
+        <button>Next</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 eCommerce. All rights reserved.</p>
+    </footer>
+
+    <script >
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select filter elements
+    const categoryFilter = document.getElementById("category");
+    const priceFilter = document.getElementById("price");
+    const searchInput = document.getElementById("search");
+    const productList = document.querySelector(".product-list");
+
+    // Sample products (replace with dynamic content later)
+    let products = [
+        { name: "Laptop", category: "electronics", price: 999, image: "images/product1.jpg" },
+        { name: "Smartwatch", category: "electronics", price: 199, image: "images/product2.jpg" },
+        { name: "T-shirt", category: "clothing", price: 29, image: "images/product3.jpg" },
+        { name: "Headphones", category: "accessories", price: 59, image: "images/product4.jpg" }
+    ];
+
+    // Function to display products
+    function displayProducts(filteredProducts) {
+        productList.innerHTML = ""; // Clear the product list
+        filteredProducts.forEach(product => {
+            let productItem = document.createElement("div");
+            productItem.classList.add("product");
+            productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>$${product.price}</p>
+                <button onclick="addToCart('${product.name}')">Add to Cart</button>
+            `;
+            productList.appendChild(productItem);
+        });
+    }
+
+    // Function to filter products
+    function applyFilters() {
+        let selectedCategory = categoryFilter.value;
+        let selectedPrice = priceFilter.value;
+        let searchQuery = searchInput.value.toLowerCase();
+
+        let filteredProducts = products.filter(product => {
+            let categoryMatch = selectedCategory === "all" || product.category === selectedCategory;
+            let priceMatch =
+                selectedPrice === "all" ||
+                (selectedPrice === "low" && product.price < 50) ||
+                (selectedPrice === "medium" && product.price >= 50 && product.price <= 200) ||
+                (selectedPrice === "high" && product.price > 200);
+            let searchMatch = product.name.toLowerCase().includes(searchQuery);
+
+            return categoryMatch && priceMatch && searchMatch;
+        });
+
+        displayProducts(filteredProducts);
+    }
+
+    // Function to add a product to the cart
+    function addToCart(productName) {
+        alert(productName + " has been added to the cart!");
+    }
+
+    // Initial product display
+    displayProducts(products);
+
+    // Add event listeners for filtering
+    categoryFilter.addEventListener("change", applyFilters);
+    priceFilter.addEventListener("change", applyFilters);
+    searchInput.addEventListener("input", applyFilters);
+});
+
+    </script>
+</body>
+</html>
